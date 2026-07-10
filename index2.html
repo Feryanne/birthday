@@ -1,0 +1,2076 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Kado Spesial Untuk Lia ✨</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-dark: #060409;
+      --bg-glass: rgba(13, 9, 21, 0.7);
+      --gold: #d4af37;
+      --gold-light: #f3e5ab;
+      --neon-pink: #f5327d;
+      --neon-purple: #ff3d3d;
+      --neon-cyan: #00c3ff;
+      --ivory: #f4efe2;
+      --font-serif: 'Playfair Display', serif;
+      --font-sans: 'Jost', sans-serif;
+      --font-cursive: 'Great Vibes', cursive;
+      --transition-long: all 1s cubic-bezier(0.25, 1, 0.5, 1);
+      --transition-mid: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body, html {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: var(--bg-dark);
+      font-family: var(--font-sans);
+      color: #ffffff;
+    }
+
+    /* Ambient Background Glow */
+    #particles-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .app-viewport {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+    }
+
+    /* SYSTEM STATE Halaman */
+    .page-screen {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(20px);
+      transition: var(--transition-long);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 24px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .page-screen.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    /* Premium Glassmorphic Container */
+    .glass-card {
+      background: var(--bg-glass);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      border: 1.5px solid rgba(255, 255, 255, 0.08);
+      border-radius: 24px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), 
+                  0 0 15px rgba(255, 0, 127, 0.15), 
+                  0 0 30px rgba(157, 0, 255, 0.1);
+      padding: 30px 24px;
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+      transition: var(--transition-mid);
+    }
+
+    .glass-card:hover {
+      border-color: rgba(255, 0, 127, 0.3);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), 
+                  0 0 25px rgba(255, 0, 127, 0.25), 
+                  0 0 40px rgba(0, 243, 255, 0.15);
+    }
+
+    /* Vibrant Buttons */
+    .btn-neon-glow {
+      background: linear-gradient(135deg, var(--neon-pink) 0%, var(--neon-purple) 100%);
+      color: #fff;
+      border: none;
+      padding: 14px 28px;
+      font-family: var(--font-sans);
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(255, 0, 127, 0.4);
+      transition: var(--transition-mid);
+      outline: none;
+    }
+
+    .btn-neon-glow:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px var(--neon-cyan), 0 0 5px #fff;
+    }
+
+    .btn-neon-glow:active {
+      transform: scale(0.95);
+    }
+
+    /* ==========================================
+       HALAMAN 1: KODE AKSES HEART-SHAPED MOBILE
+       ========================================== */
+    .heart-inputs-container {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin: 30px 0;
+    }
+
+    .heart-box-wrapper {
+      position: relative;
+      width: 54px;
+      height: 54px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .heart-box-wrapper svg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      fill: rgba(255, 0, 127, 0.15);
+      stroke: var(--neon-pink);
+      stroke-width: 1.5;
+      filter: drop-shadow(0 0 4px rgba(255, 0, 127, 0.4));
+      transition: var(--transition-mid);
+    }
+
+    .heart-box-wrapper.filled svg,
+    .heart-box-wrapper:focus-within svg {
+      fill: rgba(255, 0, 127, 0.35);
+      stroke: var(--neon-cyan);
+      filter: drop-shadow(0 0 10px var(--neon-cyan));
+    }
+
+    .code-input-field {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      border: none;
+      outline: none;
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+      color: #fff;
+      z-index: 2;
+    }
+
+    .finger-btn-glow {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.02);
+      border: 2px dashed var(--neon-pink);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      margin: 20px auto 10px;
+      position: relative;
+      transition: var(--transition-mid);
+    }
+
+    .finger-btn-glow svg {
+      width: 50%;
+      height: 50%;
+      fill: var(--neon-pink);
+      transition: var(--transition-mid);
+    }
+
+    .finger-btn-glow.scanning {
+      border-color: var(--neon-cyan);
+      box-shadow: 0 0 20px var(--neon-cyan);
+    }
+
+    .finger-btn-glow.scanning svg {
+      fill: var(--neon-cyan);
+      transform: scale(0.9);
+    }
+
+    .scanner-beam {
+      position: absolute;
+      width: 100%;
+      height: 3px;
+      background: var(--neon-cyan);
+      box-shadow: 0 0 8px var(--neon-cyan);
+      left: 0;
+      top: 10%;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .finger-btn-glow.scanning .scanner-beam {
+      opacity: 1;
+      animation: laserSlide 2s infinite ease-in-out;
+    }
+
+    @keyframes laserSlide {
+      0%, 100% { top: 10%; }
+      50% { top: 90%; }
+    }
+
+    /* ==========================================
+       HALAMAN 2: PORTRAIT MUSIC PLAYER & ENVELOPE
+       ========================================== */
+    .ambient-envelope-trigger {
+      position: relative;
+      cursor: pointer;
+      margin: 40px auto;
+      transition: var(--transition-mid);
+    }
+
+    .ambient-envelope-trigger svg {
+      width: 90px;
+      height: 90px;
+      fill: none;
+      stroke: var(--neon-pink);
+      stroke-width: 1.5;
+      filter: drop-shadow(0 0 10px rgba(255, 0, 127, 0.8));
+      animation: pulseEnvelope 2s infinite ease-in-out;
+    }
+
+    @keyframes pulseEnvelope {
+      0%, 100% { transform: scale(1); filter: drop-shadow(0 0 10px rgba(255, 0, 127, 0.8)); }
+      50% { transform: scale(1.1); filter: drop-shadow(0 0 25px rgba(255, 0, 127, 1)) drop-shadow(0 0 5px var(--neon-cyan)); }
+    }
+
+    /* Mini vinyl disc indicator when closed */
+    .mini-music-disc-indicator {
+      position: fixed;
+      bottom: 24px;
+      left: 24px;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #292929 30%, #111 70%, #000 100%);
+      border: 2px solid var(--neon-cyan);
+      box-shadow: 0 0 15px var(--neon-cyan);
+      z-index: 100;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: spinDisc 6s linear infinite;
+      animation-play-state: paused;
+      transition: var(--transition-mid);
+    }
+
+    .mini-music-disc-indicator.playing {
+      animation-play-state: running;
+    }
+
+    .mini-music-disc-indicator::after {
+      content: '';
+      width: 16px;
+      height: 16px;
+      background: var(--bg-dark);
+      border: 1px solid var(--neon-pink);
+      border-radius: 50%;
+    }
+
+    @keyframes spinDisc {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* Portrait Full Music Modal Panel */
+    .portrait-spotify-modal {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(6, 4, 9, 0.95);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      z-index: 200;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 40px 30px;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(100%);
+      transition: var(--transition-long);
+    }
+
+    .portrait-spotify-modal.open {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .spotify-modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    .spotify-modal-header button {
+      font-size: 24px;
+      color: #ff0000;
+      background: transparent;
+      width: 40px;
+        height: 40px;
+      cursor: pointer;
+    }
+
+    .spotify-modal-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex-grow: 1;
+      gap: 30px;
+    }
+
+    .spotify-track-title {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      color: var(--ivory);
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .spotify-track-subtitle {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.5);
+      margin-top: 4px;
+    }
+
+    .spotify-album-art-box {
+      width: 250px;
+      height: 250px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.8), 0 0 30px rgba(255,0,127,0.3);
+      border: 1.5px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .spotify-album-art-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .spotify-controls {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      gap: 20px;
+    }
+
+    .spotify-progress-interactive-bar {
+      width: 100%;
+      height: 5px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 3px;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .spotify-progress-current-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--neon-pink), var(--neon-cyan));
+      border-radius: 3px;
+    }
+
+    .spotify-time-row {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .spotify-btn-play-pause {
+      width: 74px;
+      height: 74px;
+      border-radius: 50%;
+      background: #fff;
+      color: #000;
+      font-size: 28px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      box-shadow: 0 5px 20px rgba(255,255,255,0.4);
+      transition: var(--transition-mid);
+    }
+
+    .spotify-btn-play-pause:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 30px var(--neon-cyan);
+    }
+
+    /* Letters Overlay */
+    .letter-popup-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 300;
+      background: rgba(6, 4, 9, 0.93);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 24px;
+      opacity: 0;
+      pointer-events: none;
+      transition: var(--transition-mid);
+    }
+
+    .letter-popup-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .letter-word-flow-box {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      line-height: 1.8;
+      color: var(--ivory);
+      text-align: center;
+      max-width: 450px;
+      margin-bottom: 30px;
+    }
+
+    .letter-word-flow-box span {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(10px);
+      animation: fadeWordUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes fadeWordUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ==========================================
+       HALAMAN 3: COUNTDOWN MISTERIUS
+       ========================================== */
+    .countdown-word-display {
+      font-family: var(--font-serif);
+      font-size: 36px;
+      color: var(--gold-light);
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      text-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+      opacity: 0;
+      transform: scale(0.8);
+      transition: var(--transition-mid);
+    }
+
+    .countdown-word-display.pulse {
+      opacity: 1;
+      transform: scale(1.1);
+      animation: cinematicWordPulse 1.2s forwards;
+    }
+
+    @keyframes cinematicWordPulse {
+      0% { opacity: 0; transform: scale(0.8) filter(blur(4px)); }
+      30% { opacity: 1; transform: scale(1.1) filter(blur(0)); }
+      70% { opacity: 1; transform: scale(1) filter(blur(0)); }
+      100% { opacity: 0; transform: scale(1.2) filter(blur(10px)); }
+    }
+
+    /* ==========================================
+       HALAMAN 4: INTRO FOTO KUE & CAKE ASSEMBLY
+       ========================================== */
+    .intro-cake-photo-frame {
+      width: 100%;
+      max-width: 320px;
+      aspect-ratio: 1/1;
+      border-radius: 20px;
+      border: 2.5px solid var(--neon-pink);
+      box-shadow: 0 0 30px rgba(255, 0, 127, 0.5);
+      overflow: hidden;
+      margin-bottom: 24px;
+      transition: var(--transition-long);
+      opacity: 0;
+      transform: scale(0.95);
+    }
+
+    .intro-cake-photo-frame.show {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .intro-cake-photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Mini cake container */
+    .interactive-cake-wrapper {
+      position: relative;
+      width: 250px;
+      height: 250px;
+      margin: 40px auto 20px;
+      display: flex;
+      justify-content: center;
+      transition: all 0.5s ease;
+    }
+
+    .cake-tier-block {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%) translateY(200px);
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+      opacity: 0;
+      transition: transform 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 1s;
+    }
+
+    .tier-block-bottom {
+      bottom: 0;
+      width: 250px;
+      height: 60px;
+      background: linear-gradient(to right, #402302, #6b400e, #402302);
+      border: 1.5px solid rgba(212, 175, 55, 0.3);
+    }
+
+    .tier-block-middle {
+      bottom: 50px;
+      width: 190px;
+      height: 52px;
+      background: linear-gradient(to right, #241302, #472605, #241302);
+      border: 1px solid rgba(255, 0, 127, 0.25);
+    }
+
+    .tier-block-top {
+      bottom: 95px;
+      width: 140px;
+      height: 52px;
+      background: linear-gradient(to right, #fff5e6, #ffffff, #fff5e6);
+      border: 1.5px solid rgba(0, 243, 255, 0.25);
+    }
+
+    /* Giant Candles */
+    .giant-candles-container {
+      position: absolute;
+      top: 65px; /* Posisikan tepat di atas tier atas */
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 16px;
+      z-index: 10;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+
+    .giant-candle-stick {
+      width: 20px;
+      height: 45px;
+      background: linear-gradient(to right, var(--neon-pink), #ffffff, var(--neon-pink));
+      position: relative;
+      border-radius: 6px;
+      font-size: 14px;
+      color: #000;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    }
+
+    .giant-candle-stick {
+      width: 20px;
+      height: 55px;
+      background: linear-gradient(to right, var(--neon-pink), #ffffff, var(--neon-pink));
+      position: relative;
+      border-radius: 6px;
+      font-size: 15px;
+      color: #000;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    }
+
+    .giant-fire-flame {
+      position: absolute;
+      top: -24px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 16px;
+      height: 26px;
+      background: radial-gradient(circle at bottom, #ffea00 20%, #ff5e00 60%, transparent 100%);
+      border-radius: 50% 50% 20% 20%;
+      animation: hugeFlicker 0.6s infinite alternate;
+      cursor: pointer;
+      box-shadow: 0 0 20px #ff9e00, 0 0 40px #ff0055;
+    }
+
+    @keyframes hugeFlicker {
+      0% { transform: translateX(-50%) scale(1) rotate(-4deg); }
+      100% { transform: translateX(-50%) scale(1.2) rotate(4deg); }
+    }
+
+    .cake-tier-block.assembled {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    /* Tampilkan lilin saat kue sudah terpasang */
+    .interactive-cake-wrapper.complete .giant-candles-container {
+      opacity: 1;
+    }
+
+    /* ==========================================
+       HALAMAN 5: SURAT GULUNGAN KLASIK FISIK
+       ========================================== */
+    .classic-scroll-box {
+      position: relative;
+      width: 90%;
+      max-width: 340px;
+      margin-top: 10px;
+    }
+
+    .classic-scroll-paper {
+      background: linear-gradient(180deg, #fbf7ec, #ece3cd);
+      color: #312311;
+      padding: 0px 24px;
+      text-align: left;
+      font-family: var(--font-serif);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.8s ease-in-out, padding 0.5s ease-in-out;
+      border-radius: 4px;
+      border-left: 3px solid var(--gold);
+      border-right: 3px solid var(--gold);
+    }
+
+    .classic-scroll-paper.open {
+      padding: 20px 24px;
+    }
+
+    .classic-scroll-paper {
+      background: linear-gradient(180deg, #fbf7ec, #ece3cd);
+      color: #312311;
+      padding: 0px 24px;
+      text-align: left;
+      font-family: var(--font-serif);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 1s ease-in-out, padding 0.8s ease-in-out;
+      border-radius: 4px;
+      border-left: 3px solid var(--gold);
+      border-right: 3px solid var(--gold);
+    }
+
+    .classic-scroll-paper.open {
+      padding: 30px 24px;
+    }
+
+    .scroll-message-stage {
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+      margin-bottom: 20px;
+      font-size: 15px;
+      line-height: 1.8;
+      border-bottom: 1px dashed rgba(49, 35, 17, 0.15);
+      padding-bottom: 14px;
+    }
+
+    .scroll-message-stage.reveal {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .scroll-message-stage h3 {
+      font-family: var(--font-cursive);
+      font-size: 32px;
+      color: #664115;
+      margin-bottom: 6px;
+    }
+
+    .classic-scroll-rod {
+      height: 16px;
+      background: linear-gradient(180deg, var(--gold-light), #9e782f, var(--gold-light));
+      border-radius: 8px;
+      margin-top: -6px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+      position: relative;
+      z-index: 5;
+      cursor: pointer;
+    }
+
+    .classic-scroll-rod::before, .classic-scroll-rod::after {
+      content: '';
+      position: absolute;
+      top: -4px;
+      width: 10px;
+      height: 24px;
+      border-radius: 4px;
+      background: var(--gold-light);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
+
+    .classic-scroll-rod::before { left: -5px; }
+    .classic-scroll-rod::after { right: -5px; }
+
+    /* ==========================================
+       HALAMAN 6: HEART PORTRAIT GRID POLAROID
+       ========================================== */
+    .polaroid-heart-grid {
+      position: relative;
+      width: 320px;
+      height: 320px;
+      margin: 10px auto;
+      flex-shrink: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: gentleBeat 2.5s infinite ease-in-out;
+    }
+
+    @keyframes gentleBeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.03); }
+    }
+
+    .polaroid-photo-item {
+      position: absolute;
+      width: 68px;
+      height: 82px;
+      background: #fff;
+      padding: 4px 4px 14px 4px;
+      box-shadow: 0 5px 12px rgba(0,0,0,0.5);
+      border-radius: 2px;
+      transform: scale(0) rotate(45deg);
+      opacity: 0;
+      transition: all 1s cubic-bezier(0.25, 1, 0.5, 1);
+      overflow: hidden;
+    }
+
+    .polaroid-photo-item img {
+      width: 100%;
+      height: 52px;
+      object-fit: cover;
+    }
+
+    .polaroid-photo-item.placed {
+      opacity: 1;
+      transform: scale(1) translate(var(--x), var(--y)) rotate(var(--rot));
+    }
+
+    /* Polaroid Zoom Modal */
+    .polaroid-zoom-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.9);
+      z-index: 500;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: var(--transition-mid);
+    }
+
+    .polaroid-zoom-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .polaroid-zoom-card {
+      background: #fff;
+      padding: 14px 14px 40px;
+      width: 280px;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.8);
+      border-radius: 4px;
+      transform: scale(0.8) rotate(-4deg);
+      transition: var(--transition-mid);
+    }
+
+    .polaroid-zoom-overlay.open .polaroid-zoom-card {
+      transform: scale(1) rotate(0deg);
+    }
+
+    .polaroid-zoom-card img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+    }
+
+    .polaroid-zoom-caption {
+      font-family: var(--font-serif);
+      font-style: italic;
+      color: #333;
+      text-align: center;
+      margin-top: 14px;
+      font-size: 14px;
+    }
+
+    /* ==========================================
+       HALAMAN 7: VIDEO GRID KENANGAN
+       ========================================== */
+    .vids-flex-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 15px;
+      margin: 20px 0;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .vid-item-card {
+      position: relative;
+      aspect-ratio: 16/9;
+      overflow: hidden;
+      border-radius: 10px;
+      background: #000;
+      cursor: pointer;
+      border: 1.5px solid rgba(255, 0, 127, 0.25);
+      transition: var(--transition-mid);
+    }
+
+    .vid-item-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .vid-item-card iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .vid-play-badge {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: var(--neon-cyan);
+      background: rgba(0,0,0,0.4);
+      transition: var(--transition-mid);
+    }
+
+    .vid-item-card.playing .vid-play-badge {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* ==========================================
+       HALAMAN 8: GAME TEBAK KADO & PESAN
+       ========================================== */
+    .arcade-cards-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 24px 0;
+      width: 100%;
+      max-width: 300px;
+    }
+
+    .arcade-flip-card {
+      aspect-ratio: 3/4;
+      perspective: 1000px;
+      cursor: pointer;
+    }
+
+    .arcade-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transform-style: preserve-3d;
+    }
+
+    .arcade-flip-card.flipped .arcade-card-inner {
+      transform: rotateY(180deg) scale(1.05);
+    }
+
+    .arcade-card-face {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
+    }
+
+    .arcade-card-front {
+      background: repeating-linear-gradient(45deg, #0d0915 0 8px, #181124 8px 16px);
+      border: 1.5px solid var(--neon-pink);
+      box-shadow: 0 0 10px rgba(255, 0, 127, 0.3);
+    }
+
+    .arcade-card-front .front-logo {
+      width: 24px;
+      height: 24px;
+      background: var(--neon-cyan);
+      transform: rotate(45deg);
+      box-shadow: 0 0 10px var(--neon-cyan);
+    }
+
+    .arcade-card-back {
+      background: linear-gradient(135deg, #1f112e, #0a0512);
+      border: 1.5px solid var(--neon-cyan);
+      transform: rotateY(180deg);
+      font-family: var(--font-serif);
+      font-style: italic;
+      color: var(--gold-light);
+      font-size: 15px;
+      text-shadow: 0 0 5px var(--gold);
+    }
+
+    .arcade-cards-grid.locked .arcade-flip-card:not(.flipped) {
+      opacity: 0.35;
+      pointer-events: none;
+    }
+
+    /* ==========================================
+       HALAMAN 9: AVATAR & CLAW GAME
+       ========================================== */
+    .avatar-uploader-circle {
+      position: relative;
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      margin: 20px auto 10px;
+      background: rgba(255, 0, 127, 0.05);
+      border: 2px dashed var(--neon-pink);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .avatar-uploader-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+    }
+
+    .avatar-uploader-circle.has-image img {
+      display: block;
+    }
+
+    .avatar-uploader-circle.has-image .avatar-dummy-icon {
+      display: none;
+    }
+
+    .avatar-dummy-icon {
+      font-size: 28px;
+      color: var(--neon-pink);
+    }
+
+    .fancy-input-text {
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid var(--neon-pink);
+      color: #fff;
+      font-family: var(--font-sans);
+      font-size: 18px;
+      text-align: center;
+      padding: 10px;
+      width: 220px;
+      outline: none;
+      transition: var(--transition-mid);
+    }
+
+    .fancy-input-text:focus {
+      border-color: var(--neon-cyan);
+      box-shadow: 0 4px 10px rgba(0, 243, 255, 0.15);
+    }
+
+    /* Claw Machine UI */
+    .arcade-hud-box {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg-glass);
+      border: 1px solid var(--neon-pink);
+      border-radius: 30px;
+      padding: 6px 16px;
+      backdrop-filter: blur(5px);
+    }
+
+    .arcade-hud-avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: rgba(255,255,255,0.1);
+    }
+
+    .arcade-hud-score {
+      font-family: var(--font-serif);
+      font-size: 16px;
+      color: var(--neon-cyan);
+      font-weight: bold;
+    }
+
+    .claw-machine-box {
+      position: relative;
+      width: 100%;
+      max-width: 320px;
+      height: 240px;
+      background: #09060f;
+      border: 1.5px solid var(--neon-pink);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-top: 30px;
+      box-shadow: inset 0 0 20px rgba(255, 0, 127, 0.3);
+    }
+
+    .claw-metal-rail {
+      position: absolute;
+      top: 10px;
+      left: 10%;
+      right: 10%;
+      height: 4px;
+      background: #333;
+    }
+
+    .claw-assembly-unit {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      width: 2px;
+      background: var(--neon-cyan);
+      transform: translateX(-50%);
+      transition: left 0.3s ease, height 0.5s ease;
+    }
+
+    .claw-pincer-hands {
+      position: absolute;
+      bottom: -12px;
+      left: 50%;
+      width: 22px;
+      height: 16px;
+      transform: translateX(-50%);
+    }
+
+    .claw-pincer-hands::before, .claw-pincer-hands::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      width: 3px;
+      height: 14px;
+      background: var(--neon-cyan);
+      border-radius: 2px;
+    }
+
+    .claw-pincer-hands::before { left: 2px; transform: rotate(20deg); }
+    .claw-pincer-hands::after { right: 2px; transform: rotate(-20deg); }
+
+    .claw-assembly-unit.grabbing .claw-pincer-hands::before { transform: rotate(5deg); }
+    .claw-assembly-unit.grabbing .claw-pincer-hands::after { transform: rotate(-5deg); }
+
+    .cat-target-toy {
+      position: absolute;
+      bottom: 10px;
+      font-size: 28px;
+      transform: translateX(-50%);
+      transition: left 0.5s ease;
+    }
+
+    .claw-game-controls {
+      display: flex;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .arcade-control-btn {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      border: 1.5px solid var(--neon-pink);
+      background: rgba(255, 0, 127, 0.05);
+      color: #fff;
+      font-size: 18px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(255, 0, 127, 0.2);
+    }
+
+    .arcade-control-btn:active {
+      background: var(--neon-pink);
+      color: #000;
+      box-shadow: 0 0 15px var(--neon-cyan);
+    }
+
+    /* ==========================================
+       HALAMAN 10: PESAN AKHIR MEWAH
+       ========================================== */
+    .final-thankyou-title {
+      font-family: var(--font-serif);
+      font-weight: bold;
+      font-size: clamp(2.2rem, 10vw, 3.5rem);
+      background: linear-gradient(90deg, var(--neon-pink), var(--neon-cyan), var(--gold));
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: textGradientFlow 4s linear infinite;
+    }
+
+    @keyframes textGradientFlow {
+      to { background-position: 200% center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Canvas Partikel -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- Mini Musik Disk Indicator (Selalu Berputar jika Musik Sedang Berjalan) -->
+  <div class="mini-music-disc-indicator" id="mini-music-indicator-btn" aria-label="Buka Spotify"></div>
+
+  <div class="app-viewport">
+
+    <!-- ==========================================
+         HALAMAN 1: KODE AKSES HEART-SHAPED MOBILE
+         ========================================== -->
+    <section class="page-screen active" id="page-gate">
+      <div class="glass-card">
+        <div class="finger-btn-glow" id="btn-touch-auth">
+          <svg viewBox="0 0 512 512">
+            <path d="M400 224h-16c-13.25 0-24 10.74-24 24 0 74.99-61.01 136-136 136s-136-61.01-136-136c0-13.26-10.75-24-24-24h-16c-13.25 0-24 10.74-24 24 0 114.78 84.72 209.78 192 228.62V488c0 13.25 10.75 24 24 24h32c13.25 0 24-10.75 24-24v-39.38c107.28-18.84 192-113.84 192-228.62 0-13.26-10.75-24-24-24zm-144-80c4.42 0 8-3.58 8-8V24c0-13.25-10.75-24-24-24h-32c-13.25 0-24 10.75-24 24v112c0 4.42 3.58 8 8 8h64zm-16-16c0-8.84-7.16-16-16-16h-16c-8.84 0-16 7.16-16 16v96c0 8.84 7.16 16 16 16h16c8.84 0 16-7.16 16-16v-96z"/>
+          </svg>
+          <div class="scanner-beam"></div>
+        </div>
+
+        <h2 style="font-family: var(--font-serif); font-size: 22px; color: var(--gold-light); margin-top: 15px;">KODE AKSES MASUK</h2>
+        <p style="font-size: 13px; color: rgba(255, 255, 255, 0.5); margin-top: 4px;">Sentuh sidik jari atau isi tanggal spesial di bawah ini</p>
+
+        <div class="heart-inputs-container">
+          <!-- 6 input berbentuk hati -->
+          <div class="heart-box-wrapper" id="heart-wrapper-0">
+            <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            <input type="password" maxlength="1" class="code-input-field" data-index="0" inputmode="numeric">
+          </div>
+          <div class="heart-box-wrapper" id="heart-wrapper-1">
+            <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            <input type="password" maxlength="1" class="code-input-field" data-index="1" inputmode="numeric">
+          </div>
+          <div class="heart-box-wrapper" id="heart-wrapper-2">
+            <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            <input type="password" maxlength="1" class="code-input-field" data-index="2" inputmode="numeric">
+          </div>
+          <div class="heart-box-wrapper" id="heart-wrapper-3">
+            <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            <input type="password" maxlength="1" class="code-input-field" data-index="3" inputmode="numeric">
+          </div>
+          <div class="heart-box-wrapper" id="heart-wrapper-4">
+            <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            <input type="password" maxlength="1" class="code-input-field" data-index="4" inputmode="numeric">
+          </div>
+          <div class="heart-box-wrapper" id="heart-wrapper-5">
+            <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            <input type="password" maxlength="1" class="code-input-field" data-index="5" inputmode="numeric">
+          </div>
+        </div>
+
+        <button class="btn-neon-glow" id="btn-submit-pin">Buka 🔓</button>
+        <p id="gate-error-message" style="color: var(--neon-pink); font-size: 12px; margin-top: 14px; display: none; font-style: italic;">Sandi belum pas, coba masukkan tanggal lahirnya ya...</p>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         HALAMAN 2: RUANGAN PESTA & ENVELOPE SURAT
+         ========================================== -->
+    <section class="page-screen" id="page-hall">
+      <span style="font-family: var(--font-serif); font-size: 14px; letter-spacing: 2px; color: var(--neon-cyan); text-transform: uppercase;"></span>
+      <h2 style="font-family: var(--font-serif); font-size: 26px; color: var(--gold-light); margin-top: 6px;">Ketuk Amplop Merah Hati ✉️</h2>
+
+      <!-- Ikon Surat Fisik Mewah SVG -->
+      <div class="ambient-envelope-trigger" id="letter-trigger-box">
+        <svg viewBox="0 0 24 24">
+          <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+        </svg>
+      </div>
+
+      <p style="font-size: 13px; color: rgba(255, 255, 255, 0.4); max-width: 250px;">Sentuh surat di atas untuk membaca pesan penuh rahasia...</p>
+    </section>
+
+    <!-- ==========================================
+         HALAMAN 3: COUNTDOWN MISTERIUS
+         ========================================== -->
+    <section class="page-screen" id="page-countdown">
+      <div class="countdown-word-display" id="countdown-words-target">PERSIAPKAN</div>
+    </section>
+
+    <!-- ==========================================
+         HALAMAN 4: KUE ULANG TAHUN & FOTO INTRO
+         ========================================== -->
+    <section class="page-screen" id="page-cake">
+      <!-- Foto awal masuk membawa kue -->
+      <div class="intro-cake-photo-frame" id="intro-photo-container">
+        <!-- Menggunakan 'cake-photo.jpg' persis sesuai instruksi -->
+        <img src="assets/cake-photo.jpg" alt="Foto Membawa Kue Ulang Tahun" onerror="this.src='https://placehold.co/300x300/161124/ff007f?text=Momen+Terindah'">
+      </div>
+
+      <div style="text-align: center;" id="cake-action-container">
+        <button class="btn-neon-glow" id="btn-reveal-stacked-cake">Buat Permohonan 🎂</button>
+      </div>
+
+      <!-- Konstruksi Kue Menumpuk yang disembunyikan di awal -->
+      <div class="interactive-cake-wrapper" id="stacked-cake-container">
+        <!-- Lilin nama L I A berukuran raksasa -->
+        <div class="giant-candles-container">
+          <div class="giant-candle-stick">L<div class="giant-fire-flame" data-candle="1"></div></div>
+          <div class="giant-candle-stick">I<div class="giant-fire-flame" data-candle="2"></div></div>
+          <div class="giant-candle-stick">A<div class="giant-fire-flame" data-candle="3"></div></div>
+        </div>
+
+        <div class="cake-tier-block tier-block-top" id="tier-top-block">
+          <div style="position: absolute; top: -10px; width: 100%; display: flex; justify-content: space-around;">
+            <span>🍓</span><span>🍓</span>
+          </div>
+        </div>
+        <div class="cake-tier-block tier-block-middle" id="tier-mid-block"></div>
+        <div class="cake-tier-block tier-block-bottom" id="tier-base-block"></div>
+      </div>
+
+      <p style="font-size: 13px; color: rgba(255,255,255,0.6); margin-top: 20px; display: none;" id="stacked-cake-hint-text">
+        Sentuh tiap api untuk meniup lilinnya...
+      </p>
+    </section>
+
+    <!-- ==========================================
+         HALAMAN 5: SURAT GULUNGAN KLASIK FISIK
+         ========================================== -->
+    <section class="page-screen" id="page-letter">
+      <h2 style="font-family: var(--font-serif); font-size: 20px; color: var(--gold-light); margin-bottom: 15px;">Gulungan Pesan Puisi</h2>
+
+      <div class="classic-scroll-box">
+        <div class="classic-scroll-paper" id="scroll-paper-element">
+          <div class="scroll-message-stage" id="scroll-msg-1">
+            <h3>Detik-Detik Terindah</h3>
+            <p>Wahai pemilik hati yang kian dewasa. Tak ada kado terindah yang bisa kuberikan di semesta. Selain untaian doa dan cinta yang tak pernah binasa. Selamat ulang tahun sayang. Semoga bahagia selalu mengiringi setiap langkahmu yang panjang</p>
+          </div>
+          <div class="scroll-message-stage" id="scroll-msg-2"></div>
+            <div class="scroll-message-stage" id="scroll-msg-3"></div>
+        </div>
+        <div class="classic-scroll-rod" id="scroll-pull-rod"></div>
+      </div>
+
+      <p style="font-size: 11px; color: rgba(255, 255, 255, 0.4); margin-top: 15px;" id="scroll-interactive-caption">
+        Sentuh batang gulungan emas di bawah kertas untuk membuka surat...
+      </p>
+    </section>
+
+    <!-- ==========================================
+         HALAMAN 6: GALERI GRID LOVE POLAROID
+         ========================================== -->
+    <section class="page-screen" id="page-gallery">
+      <span style="font-family: var(--font-sans); font-size: 11px; letter-spacing: 2px; color: var(--neon-cyan);">MOMEN KITA</span>
+      <h2 style="font-family: var(--font-serif); font-size: 24px; color: var(--gold-light);">Disusun Berbentuk Hati ❤️</h2>
+
+      <div class="polaroid-heart-grid" id="polaroid-heart-grid-target"></div>
+
+      <button class="btn-neon-glow" id="btn-next-to-videos">Buka Video berkesan ➔</button>
+    </section>
+
+    <!-- ==========================================
+         HALAMAN 7: VIDEO GRID KENANGAN
+         ========================================== -->
+    <section class="page-screen" id="page-videos">
+      <span style="font-family: var(--font-sans); font-size: 11px; letter-spacing: 2px; color: var(--neon-cyan);">KUMPULAN VIDEO</span>
+      <h2 style="font-family: var(--font-serif); font-size: 24px; color: var(--gold-light);">Diputar Bersama</h2>
+
+      <div class="vids-flex-grid" id="vids-container-target"></div>
+
+      <button class="btn-neon-glow" id="btn-next-to-cards">Lanjut Pilih Hadiah ➔</button>
+    </section>
+
+    <!-- ==========================================
+         HALAMAN 8: GAME TEBAK KADO & PESAN
+         ========================================== -->
+    <section class="page-screen" id="page-cards">
+      <span style="font-family: var(--font-sans); font-size: 11px; letter-spacing: 2px; color: var(--neon-cyan);">TEBAK KADO</span>
+      <h2 style="font-family: var(--font-serif); font-size: 24px; color: var(--gold-light);">Pilih Satu Kartu Keberuntungan</h2>
+
+      <div class="arcade-cards-grid" id="arcade-cards-grid-element"></div>
+
+      <button class="btn-neon-glow" id="btn-next-to-arcade-name" style="display: none;">Ada hadiah lagiii</button>
+    </section>
+
+    <!-- ==========================================
+         HALAMAN 9: AVATAR & CLAW GAME
+         ========================================== -->
+    <section class="page-screen" id="page-nameentry">
+      <span style="font-family: var(--font-sans); font-size: 11px; letter-spacing: 2px; color: var(--neon-cyan);">REGISTRASI ARCADE</span>
+      <h2 style="font-family: var(--font-serif); font-size: 24px; color: var(--gold-light);">Identitas Pemain</h2>
+
+      <div class="avatar-uploader-circle" id="avatar-uploader-trigger">
+        <span class="avatar-dummy-icon">👤</span>
+        <img src="" id="avatar-preview-image" alt="Pratinjau Avatar">
+      </div>
+      <input type="file" id="hidden-file-input" accept="image/*" style="display: none;">
+
+      <p style="font-size: 11px; color: var(--neon-pink); margin-bottom: 20px;">Ketuk lingkaran untuk mengunggah foto profilmu</p>
+
+      <input type="text" class="fancy-input-text" id="arcade-player-name-input" placeholder="Masukkan Namamu...">
+
+      <div style="margin-top: 25px;">
+        <button class="btn-neon-glow" id="btn-submit-arcade-name">Mulai Bermain 🎮</button>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         HALAMAN 10: CLAW MACHINE INTERACTIVE
+         ========================================== -->
+    <section class="page-screen" id="page-claw">
+      <!-- HUD Skor di Kanan Atas -->
+      <div class="arcade-hud-box">
+        <img class="arcade-hud-avatar" id="hud-player-avatar" src="https://placehold.co/50x50/161124/ff007f?text=Lia" alt="">
+        <div class="arcade-hud-score" id="hud-score-value">0</div>
+      </div>
+
+      <span style="font-family: var(--font-sans); font-size: 11px; letter-spacing: 2px; color: var(--neon-cyan);">ZONE ARCADE GAME</span>
+      <h2 style="font-family: var(--font-serif); font-size: 24px; color: var(--gold-light);">Tangkap Boneka Kucing</h2>
+
+      <div class="claw-machine-box" id="claw-stage-boundary">
+        <div class="claw-metal-rail"></div>
+        <div class="claw-assembly-unit" id="claw-crane-unit">
+          <div class="claw-pincer-hands"></div>
+        </div>
+        <div class="cat-target-toy" id="cat-moving-target">🐱</div>
+      </div>
+
+      <div class="claw-game-controls">
+        <button class="arcade-control-btn" id="btn-claw-move-left">◀</button>
+        <button class="arcade-control-btn" id="btn-claw-drop">⬇</button>
+        <button class="arcade-control-btn" id="btn-claw-move-right">▶</button>
+      </div>
+
+      <button class="btn-neon-glow" id="btn-next-to-final" style="margin-top: 25px;">Selesaikan Permainan ➔</button>
+    </section>
+
+    <!-- ==========================================
+         HALAMAN 11: PESAN AKHIR MEWAH
+         ========================================== -->
+    <section class="page-screen" id="page-final">
+      <div class="final-thankyou-title">Happy Birthday</div>
+      <p style="font-family: var(--font-serif); font-style: italic; color: var(--gold-light); font-size: 18px; margin-top: 15px;">
+        Teruntuk Lia tercinta, hari ini milikmu sepenuhnya.
+      </p>
+      <p style="font-size: 13px; color: rgba(255, 255, 255, 0.5); margin-top: 30px; letter-spacing: 2px;">
+        — Dibuat dengan segenap cinta dari Aku
+      </p>
+    </section>
+
+  </div>
+
+  <!-- ==========================================
+       PORTRAIT SPOTIFY MUSIC MODAL PANEL
+       ========================================== -->
+  <div class="portrait-spotify-modal" id="spotify-fullscreen-panel">
+    <div class="spotify-modal-header">
+      <button id="btn-close-spotify-modal">✕</button>
+      <span style="font-family: var(--font-sans); font-size: 11px; letter-spacing: 2px; color: var(--neon-cyan);">SEKARANG MEMUTAR</span>
+      <div style="width: 24px;"></div> <!-- Spacer -->
+    </div>
+
+    <div class="spotify-modal-content">
+      <div class="spotify-album-art-box">
+        <!-- Menggunakan 'cake-photo.jpg' persis sesuai instruksi -->
+        <img src="cake-photo.jpg" alt="Album Art" onerror="this.src='https://placehold.co/300x300/161124/ff007f?text=Momen+Terindah'">
+      </div>
+
+      <div style="text-align: center;">
+        <h3 class="spotify-track-title">Lagu Kenangan Lia</h3>
+        <p class="spotify-track-subtitle">Spesial Hari Ulang Tahun ✨</p>
+      </div>
+    </div>
+
+    <div class="spotify-controls">
+      <div class="spotify-progress-interactive-bar" id="spotify-progress-bg-element">
+        <div class="spotify-progress-current-fill" id="spotify-progress-fill-element"></div>
+      </div>
+      <div class="spotify-time-row">
+        <span id="spotify-current-time">0:00</span>
+        <span id="spotify-total-duration">3:20</span>
+      </div>
+
+      <button class="spotify-btn-play-pause" id="spotify-play-pause-action">▶</button>
+    </div>
+  </div>
+
+  <!-- AUDIO ELEMENT UTAMA -->
+  <audio id="core-audio-element" src="assets/musik1.weba" loop></audio>
+
+  <!-- ==========================================
+       LETTER OVERLAY MODAL (POPUP SURAT SINEMATIK)
+       ========================================== -->
+  <div class="letter-popup-overlay" id="letter-text-flow-popup">
+    <div style="text-align: center;">
+      <div class="letter-word-flow-box" id="letter-rendered-words"></div>
+      <button class="btn-neon-glow" id="btn-close-letter-popup">Tutup Surat ✨</button>
+    </div>
+  </div>
+
+  <script>
+    const CONFIG = {
+      correctAccessCode: "110707", // Kode tanggal kelahiran kesayangan
+      countdownPhrases: [
+        "GET READY",
+        "FOR THE",
+        "MOST",
+        "MEMORABLE",
+        "MOMENTS..."
+      ],
+      heartPolaroidImages: [
+        "assets/pollaroid.png",
+        "assets/pollaroid.jpg",
+        "assets/pollaroid (2).jpg",
+        "assets/pollaroid (3).jpg",
+        "assets/pollaroid (4).jpg",
+        "assets/pollaroid (5).jpg",
+        "assets/pollaroid (6).jpg",
+        "assets/pollaroid (7).jpg",
+        "assets/pollaroid (5).jpg",
+     ],
+      videoMemories: [
+        "https://youtu.be/ZmuI81Ld5cI?si=CZriEK1jCOSk_ZaN",
+        "https://youtu.be/ZmuI81Ld5cI?si=CZriEK1jCOSk_ZaN",
+        "https://youtu.be/ZmuI81Ld5cI?si=CZriEK1jCOSk_ZaN",
+        "https://youtu.be/ZmuI81Ld5cI?si=CZriEK1jCOSk_ZaN"
+      ],
+      luckyGiftCards: [
+        "CIUMAN ",
+        "CIUM PELUK",
+        "PELUK CIUM ",
+        "CIUMAN "
+      ],
+      heartGridPattern: [
+        [0,1,0,1,0],
+        [1,1,1,1,1],
+        [1,1,1,1,1],
+        [0,1,1,1,0],
+        [0,0,1,0,0]
+      ]
+    };
+
+    const AppState = {
+      currentStage: 'page-gate',
+      flowOrder: ['page-gate', 'page-hall', 'page-countdown', 'page-cake', 'page-letter', 'page-gallery', 'page-videos', 'page-cards', 'page-nameentry', 'page-claw', 'page-final'],
+      audioUnlocked: false,
+      musicPlaying: false,
+      currentTrackIdx: 0,
+      activeParticles: 'glitter',
+      lettersCount: 3
+    };
+
+    // Ambient Canvas Particles Generator
+    const canvas = document.getElementById('particles-canvas');
+    const ctx = canvas.getContext('2d');
+    let particlesArray = [];
+
+    function setupCanvasSize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', setupCanvasSize);
+    setupCanvasSize();
+
+    class ParticleGlow {
+      constructor(type) {
+        this.type = type; // glitter, rain, sakura, heart
+        this.reset();
+      }
+
+      reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * -100;
+        this.size = Math.random() * 3 + 1.5;
+        this.speedX = Math.random() * 2 - 1;
+        this.speedY = Math.random() * 1.5 + 1;
+        this.color = '#fff';
+        this.alpha = Math.random() * 0.7 + 0.3;
+        this.angle = Math.random() * Math.PI * 2;
+        this.spin = Math.random() * 0.02 - 0.01;
+
+        if (this.type === 'glitter') {
+          this.color = `hsla(${Math.random() * 40 + 330}, 100%, 70%, ${this.alpha})`;
+          this.speedY = Math.random() * 1.2 + 0.6;
+        } else if (this.type === 'rain') {
+          this.size = Math.random() * 1.5 + 0.8;
+          this.speedY = Math.random() * 5 + 6;
+          this.speedX = -1;
+          this.color = `rgba(0, 243, 255, ${this.alpha})`;
+        } else if (this.type === 'sakura') {
+          this.size = Math.random() * 5 + 3;
+          this.speedY = Math.random() * 1 + 0.8;
+          this.speedX = Math.random() * 1 - 0.2;
+          this.color = `rgba(255, 182, 193, ${this.alpha})`;
+        }
+      }
+
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        this.angle += this.spin;
+
+        if (this.y > canvas.height + 20 || this.x < -20 || this.x > canvas.width + 20) {
+          this.reset();
+        }
+      }
+
+      draw() {
+        ctx.save();
+        ctx.globalAlpha = this.alpha;
+        ctx.translate(this.x, this.y);
+        ctx.rotate(this.angle);
+
+        if (this.type === 'rain') {
+          ctx.strokeStyle = this.color;
+          ctx.lineWidth = this.size;
+          ctx.beginPath();
+          ctx.moveTo(0, 0);
+          ctx.lineTo(-2, 12);
+          ctx.stroke();
+        } else if (this.type === 'sakura') {
+          ctx.fillStyle = this.color;
+          ctx.beginPath();
+          ctx.ellipse(0, 0, this.size, this.size / 2, Math.PI / 4, 0, Math.PI * 2);
+          ctx.fill();
+        } else {
+          // Default: Glitter glow
+          ctx.fillStyle = this.color;
+          ctx.beginPath();
+          ctx.arc(0, 0, this.size, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        ctx.restore();
+      }
+    }
+
+    function initParticleSystem(type) {
+      particlesArray = [];
+      AppState.activeParticles = type;
+      const count = type === 'rain' ? 120 : 60;
+      for (let i = 0; i < count; i++) {
+        particlesArray.push(new ParticleGlow(type));
+      }
+    }
+
+    function runParticleAnimation() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particlesArray.forEach(p => {
+        p.update();
+        p.draw();
+      });
+      requestAnimationFrame(runParticleAnimation);
+    }
+
+    initParticleSystem('glitter');
+    runParticleAnimation();
+
+    function switchToPage(nextPageId) {
+      document.querySelectorAll('.page-screen').forEach(p => {
+        p.classList.remove('active');
+      });
+
+      const nextEl = document.getElementById(nextPageId);
+      if (nextEl) {
+        nextEl.classList.add('active');
+        AppState.currentStage = nextPageId;
+      }
+
+      // Atur partikel lingkungan secara adaptif sesuai tema halaman
+      if (nextPageId === 'page-letter') {
+        initParticleSystem('sakura');
+      } else if (nextPageId === 'page-gallery') {
+        initParticleSystem('glitter');
+      } else if (nextPageId === 'page-claw') {
+        initParticleSystem('rain');
+      } else {
+        initParticleSystem('glitter');
+      }
+    }
+
+    // ==========================================
+    // HALAMAN 1: LOGIK PIN HATI & SCANNER FINGERPRINT
+    // ==========================================
+    const pinInputs = document.querySelectorAll('.code-input-field');
+    pinInputs.forEach((input, idx) => {
+      input.addEventListener('input', (e) => {
+        const wrapper = document.getElementById(`heart-wrapper-${idx}`);
+        if (e.target.value.length === 1) {
+          wrapper.classList.add('filled');
+          if (idx < pinInputs.length - 1) {
+            pinInputs[idx + 1].focus();
+          }
+        } else {
+          wrapper.classList.remove('filled');
+        }
+      });
+
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Backspace' && e.target.value.length === 0 && idx > 0) {
+          const wrapper = document.getElementById(`heart-wrapper-${idx}`);
+          wrapper.classList.remove('filled');
+          pinInputs[idx - 1].focus();
+        }
+      });
+    });
+
+    // Pemicu Scan Gimmick
+    const touchScanBtn = document.getElementById('btn-touch-auth');
+    touchScanBtn.addEventListener('click', () => {
+      touchScanBtn.classList.add('scanning');
+      document.getElementById('gate-error-message').style.display = 'none';
+
+      setTimeout(() => {
+        touchScanBtn.classList.remove('scanning');
+        // bypass kode pin otomatis setelah sidik jari disetujui
+        unlockCoreAudio();
+        switchToPage('page-hall');
+      }, 3000);
+    });
+
+    // Validasi input manual
+    document.getElementById('btn-submit-pin').addEventListener('click', () => {
+      let pinEntered = "";
+      pinInputs.forEach(i => pinEntered += i.value);
+
+      if (pinEntered === CONFIG.correctAccessCode) {
+        unlockCoreAudio();
+        switchToPage('page-hall');
+      } else {
+        document.getElementById('gate-error-message').style.display = 'block';
+        // Goyangkan semua input hati karena salah
+        document.querySelectorAll('.heart-box-wrapper').forEach(w => {
+          w.style.transform = 'translateX(-5px)';
+          setTimeout(() => w.style.transform = 'none', 100);
+        });
+      }
+    });
+
+    // ==========================================
+    // KONTROL AUDIO CORE & PORTRAIT MUSIC PLAYER
+    // ==========================================
+    const coreAudio = document.getElementById('core-audio-element');
+    const miniMusicBtn = document.getElementById('mini-music-indicator-btn');
+    const spotifyModal = document.getElementById('spotify-fullscreen-panel');
+    const btnCloseSpotify = document.getElementById('btn-close-spotify-modal');
+    const playPauseActionBtn = document.getElementById('spotify-play-pause-action');
+    const progressBarFill = document.getElementById('spotify-progress-fill-element');
+    const timerCurrentText = document.getElementById('spotify-current-time');
+    const timerTotalText = document.getElementById('spotify-total-duration');
+
+    function unlockCoreAudio() {
+      if (AppState.audioUnlocked) return;
+      AppState.audioUnlocked = true;
+      coreAudio.volume = 0.55;
+      coreAudio.play().then(() => {
+        AppState.musicPlaying = true;
+        miniMusicBtn.classList.add('playing');
+        playPauseActionBtn.innerText = "⏸";
+        initProgressTracker();
+      }).catch(err => {
+        console.log("Audio play deferred", err);
+      });
+    }
+
+    function togglePlayback() {
+      if (AppState.musicPlaying) {
+        coreAudio.pause();
+        AppState.musicPlaying = false;
+        miniMusicBtn.classList.remove('playing');
+        playPauseActionBtn.innerText = "▶";
+      } else {
+        coreAudio.play();
+        AppState.musicPlaying = true;
+        miniMusicBtn.classList.add('playing');
+        playPauseActionBtn.innerText = "⏸";
+        initProgressTracker();
+      }
+    }
+
+    miniMusicBtn.addEventListener('click', () => {
+      spotifyModal.classList.add('open');
+    });
+
+    btnCloseSpotify.addEventListener('click', () => {
+      spotifyModal.classList.remove('open');
+    });
+
+    playPauseActionBtn.addEventListener('click', togglePlayback);
+
+    function formatMusicTime(seconds) {
+      const min = Math.floor(seconds / 60);
+      const sec = Math.floor(seconds % 60);
+      return `${min}:${sec < 10 ? '0' : ''}${sec}`;
+    }
+
+    function initProgressTracker() {
+      setInterval(() => {
+        if (!isNaN(coreAudio.duration)) {
+          const fillPercent = (coreAudio.currentTime / coreAudio.duration) * 100;
+          progressBarFill.style.width = `${fillPercent}%`;
+          timerCurrentText.innerText = formatMusicTime(coreAudio.currentTime);
+          timerTotalText.innerText = formatMusicTime(coreAudio.duration);
+        }
+      }, 300);
+    }
+
+    // Interaksi menggeser progress lagu
+    document.getElementById('spotify-progress-bg-element').addEventListener('click', (e) => {
+      const rect = e.currentTarget.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      const progressPercent = clickX / rect.width;
+      if (!isNaN(coreAudio.duration)) {
+        coreAudio.currentTime = progressPercent * coreAudio.duration;
+      }
+    });
+
+    // ==========================================
+    // HALAMAN 2: AMPLOP SURAT UTAMA & SINEMATIK TEXT
+    // ==========================================
+    const letterTextFlowText = " SELAMAT PAGI CANTIK, Iyan minta maaf bangett belum bisa nemuin lia sekarangg🥺. semoga diwaktu dekat kita bisa ngerencanain liburan bareng ya yangg. i always in here for you❤️ ";
+
+    document.getElementById('letter-trigger-box').addEventListener('click', () => {
+      const popup = document.getElementById('letter-text-flow-popup');
+      popup.classList.add('open');
+      const box = document.getElementById('letter-rendered-words');
+      box.innerHTML = "";
+
+      const splitWords = letterTextFlowText.split("    ");
+      splitWords.forEach((word, index) => {
+        const span = document.createElement('span');
+        span.innerText = word + " ";
+        span.style.animationDelay = `${index * 0.25}s`;
+        box.appendChild(span);
+      });
+    });
+
+    document.getElementById('btn-close-letter-popup').addEventListener('click', () => {
+      document.getElementById('letter-text-flow-popup').classList.remove('open');
+      switchToPage('page-countdown');
+      startCinematicCountdown();
+    });
+
+    // ==========================================
+    // HALAMAN 3: COUNTDOWN MISTERIUS
+    // ==========================================
+    function startCinematicCountdown() {
+      const display = document.getElementById('countdown-words-target');
+      let idx = 0;
+
+      const timer = setInterval(() => {
+        if (idx < CONFIG.countdownPhrases.length) {
+          display.innerText = CONFIG.countdownPhrases[idx];
+          display.classList.remove('pulse');
+          void display.offsetWidth; // force redraw
+          display.classList.add('pulse');
+          idx++;
+        } else {
+          clearInterval(timer);
+          switchToPage('page-cake');
+          triggerIntroPhotoMoments();
+        }
+      }, 1500);
+    }
+
+    // ==========================================
+    // HALAMAN 4: KUE ULANG TAHUN & FOTO INTRO
+    // ==========================================
+    function triggerIntroPhotoMoments() {
+      // Tampilkan foto membawa kue di awal masuk
+      setTimeout(() => {
+        document.getElementById('intro-photo-container').classList.add('show');
+      }, 300);
+    }
+
+    document.getElementById('btn-reveal-stacked-cake').addEventListener('click', () => {
+      // Perkecil dan geser foto ke atas
+      const photoFrame = document.getElementById('intro-photo-container');
+      photoFrame.style.transform = 'scale(0.55) translateY(-20px)';
+      photoFrame.style.marginBottom = '0px';
+
+      // Sembunyikan tombol buat permohonan
+      document.getElementById('cake-action-container').style.display = 'none';
+
+      // Tampilkan dan rakit struktur kue bertumpuk
+      const cakeContainer = document.getElementById('stacked-cake-container');
+      cakeContainer.style.display = 'block';
+
+      setTimeout(() => {
+        document.getElementById('tier-base-block').classList.add('assembled');
+      }, 400);
+
+      setTimeout(() => {
+        document.getElementById('tier-mid-block').classList.add('assembled');
+      }, 1200);
+
+      setTimeout(() => {
+        document.getElementById('tier-top-block').classList.add('assembled');
+        cakeContainer.classList.add('complete');
+        document.getElementById('stacked-cake-hint-text').style.display = 'block';
+      }, 2000);
+    });
+
+    // Logika meniup lilin nama L I A
+    let activeCandlesLeft = 3;
+    document.querySelectorAll('.giant-fire-flame').forEach(f => {
+      f.addEventListener('click', (e) => {
+        e.target.style.display = 'none';
+        activeCandlesLeft--;
+
+        if (activeCandlesLeft === 0) {
+          setTimeout(() => {
+            document.getElementById('stacked-cake-hint-text').innerText = "Semua keinginanmu telah diterbangkan... ✨";
+            // Kembang api mini sebagai selebrasi
+            initFireworksCelebration();
+          }, 800);
+        }
+      });
+    });
+
+    function initFireworksCelebration() {
+      // Alihkan halaman ke surat gulungan setelah tiup lilin selesai
+      setTimeout(() => {
+        switchToPage('page-letter');
+      }, 2000);
+    }
+
+    // ==========================================
+    // HALAMAN 5: SURAT GULUNGAN KLASIK FISIK
+    // ==========================================
+    let currentScrollStage = 1;
+    document.getElementById('scroll-pull-rod').addEventListener('click', () => {
+      const paper = document.getElementById('scroll-paper-element');
+      const caption = document.getElementById('scroll-interactive-caption');
+
+      if (currentScrollStage === 1) {
+        paper.classList.add('open');
+        paper.style.maxHeight = "120px";
+        document.getElementById('scroll-msg-1').classList.add('reveal');
+        caption.innerText = "Tarik lagi batang emas untuk melanjutkan...";
+        currentScrollStage++;
+    //   } else if (currentScrollStage === 2) {
+    //     paper.style.maxHeight = "220px";
+    //     document.getElementById('scroll-msg-2').classList.add('reveal');
+    //     currentScrollStage++;
+      } else if (currentScrollStage === 2) {
+        paper.style.maxHeight = "400px";
+        document.getElementById('scroll-msg-3').classList.add('reveal');
+        caption.innerText = "Pesan telah terbuka ✨";
+        
+        document.getElementById('scroll-pull-rod').style.boxShadow = "0 0 15px var(--neon-cyan)";
+        
+        setTimeout(() => {
+          caption.innerHTML = `<button class="btn-neon-glow" style="padding: 10px 20px; font-size: 12px;" onclick="switchToPage('page-gallery'); generateHeartGridPhotos();">Buka Galeri Foto ➔</button>`;
+        }, 800);
+      }
+    });
+
+    // ==========================================
+    // HALAMAN 6: HEART PORTRAIT GRID POLAROID
+    // ==========================================
+    function generateHeartGridPhotos() {
+      const grid = document.getElementById('polaroid-heart-grid-target');
+      grid.innerHTML = "";
+
+      let photoIndex = 0;
+      const cellW = 54;
+      const cellH = 64;
+
+      for (let r = 0; r < 5; r++) {
+        for (let c = 0; c < 5; c++) {
+          if (CONFIG.heartGridPattern[r][c] === 1) {
+            const card = document.createElement('div');
+            card.className = 'polaroid-photo-item';
+
+            // Posisikan koordinat persis agar membentuk hati
+            const posX = (c - 2) * cellW;
+            const posY = (r - 2) * cellH;
+            const rot = (Math.random() * 20 - 10);
+
+            card.style.setProperty('--x', `${posX}px`);
+            card.style.setProperty('--y', `${posY}px`);
+            card.style.setProperty('--rot', `${rot}deg`);
+
+            const img = document.createElement('img');
+            // Ambil koleksi gambar
+            img.src = CONFIG.heartPolaroidImages[photoIndex % CONFIG.heartPolaroidImages.length];
+            card.appendChild(img);
+
+            // Zoom interaktif saat polaroid disentuh
+            card.addEventListener('click', () => {
+              openPolaroidZoom(img.src);
+            });
+
+            grid.appendChild(card);
+
+            // Efek peletakan kartu bertahap
+            setTimeout(() => {
+              card.classList.add('placed');
+            }, photoIndex * 200);
+
+            photoIndex++;
+          }
+        }
+      }
+    }
+
+    // Polaroid Zoom Logic
+    const zoomOverlay = document.createElement('div');
+    zoomOverlay.className = 'polaroid-zoom-overlay';
+    zoomOverlay.id = 'polaroid-zoom-modal';
+    zoomOverlay.innerHTML = `
+      <div class="polaroid-zoom-card">
+        <img id="polaroid-zoom-img" src="" alt="">
+        <div class="polaroid-zoom-caption">cewek tercantik didunia✨</div>
+      </div>
+    `;
+    document.body.appendChild(zoomOverlay);
+
+    function openPolaroidZoom(src) {
+      document.getElementById('polaroid-zoom-img').src = src;
+      zoomOverlay.classList.add('open');
+    }
+
+    zoomOverlay.addEventListener('click', () => {
+      zoomOverlay.classList.remove('open');
+    });
+
+    document.getElementById('btn-next-to-videos').addEventListener('click', () => {
+      switchToPage('page-videos');
+      generateVideoGridItems();
+    });
+
+    // ==========================================
+    // HALAMAN 7: VIDEO GRID KENANGAN
+    // ==========================================
+    function parseYouTubeId(url) {
+      const match = url.match(/(?:youtu\.be\/|v=|\/embed\/)([A-Za-z0-9_-]{6,})/);
+      return match ? match[1] : null;
+    }
+
+    function generateVideoGridItems() {
+      const vidsGrid = document.getElementById('vids-container-target');
+      vidsGrid.innerHTML = "";
+
+      // Hanya mengambil 1 video saja
+      const video = CONFIG.videoMemories[0];
+      const id = parseYouTubeId(video);
+      const card = document.createElement('div');
+      card.className = "vid-item-card";
+
+      if (id) {
+        card.innerHTML = `
+          <img src="https://img.youtube.com/vi/${id}/hqdefault.jpg" alt="Video">
+          <div class="vid-play-badge">▶</div>
+        `;
+        card.addEventListener('click', () => {
+          card.classList.add('playing');
+          card.innerHTML = `<iframe width="560" height="315" src="https://www.youtube.com/embed/9WVgFaUPJ5U?si=C1RQnLUv7p8kT09W" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
+        });
+      } else {
+        card.innerHTML = `<div class="vid-play-badge">Video tidak ditemukan</div>`;
+      }
+      vidsGrid.appendChild(card);
+    }
+
+    document.getElementById('btn-next-to-cards').addEventListener('click', () => {
+      switchToPage('page-cards');
+      generateArcadeFlipCards();
+    });
+
+    // ==========================================
+    // HALAMAN 8: GAME TEBAK KADO & PESAN
+    // ==========================================
+    function generateArcadeFlipCards() {
+      const grid = document.getElementById('arcade-cards-grid-element');
+      grid.innerHTML = "";
+      grid.classList.remove('locked');
+
+      CONFIG.luckyGiftCards.forEach(gift => {
+        const card = document.createElement('div');
+        card.className = "arcade-flip-card";
+        card.innerHTML = `
+          <div class="arcade-card-inner">
+            <div class="arcade-card-face arcade-card-front">
+              <div class="front-logo"></div>
+            </div>
+            <div class="arcade-card-face arcade-card-back">
+              ${gift}
+            </div>
+          </div>
+        `;
+
+        card.addEventListener('click', () => {
+          if (grid.classList.contains('locked')) return;
+          card.classList.add('flipped');
+          grid.classList.add('locked');
+          
+          setTimeout(() => {
+            document.getElementById('btn-next-to-arcade-name').style.display = "block";
+          }, 800);
+        });
+
+        grid.appendChild(card);
+      });
+    }
+
+    document.getElementById('btn-next-to-arcade-name').addEventListener('click', () => {
+    //arahkan ke halaman index.html di folder 21 didalam folder eid mubarak
+        window.location.href = "./eid mubarak/21/index.html";
+    });
+
+    document.getElementById('btn-next-to-final').addEventListener('click', () => {
+      switchToPage('page-final');
+    });
+
+  </script>
+</body>
+</html>
